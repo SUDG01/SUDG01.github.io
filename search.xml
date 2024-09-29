@@ -4,12 +4,43 @@
   
     
     <entry>
+      <title>第一周学习笔记</title>
+      <link href="/2024/09/29/%E7%AC%AC%E4%B8%80%E5%91%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <url>/2024/09/29/%E7%AC%AC%E4%B8%80%E5%91%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<p><em><strong>实验室第一周学习内容：</strong></em></p><h1 id="1-搭建个人博客"><a href="#1-搭建个人博客" class="headerlink" title="1.搭建个人博客"></a>1.<strong>搭建个人博客</strong></h1><p>采用了hexo框架，windows安装git后使用git依次输入</p><pre><code class="highlight git">npm install -g hexo-cli     #全局安装hexohexo init                   #初始化博客npm install                 #安装hexo依赖包</code></pre><p>选定文件夹后git clone拉取hexo仓库后本地输入</p><pre><code class="highlight hexo">hexo s</code></pre><p>本地博客就在localhost上运行了，浏览器输入<a href="http://localhost:4000即可访问">http://localhost:4000即可访问</a></p><p>本地博客搭建完毕后，需要在公网上可以访问展示，使用github仓库为媒介，搭建博客</p><p>第一步是设置ssh密钥，在git上生成rsa密钥，输入</p><pre><code class="highlight git">ssh-keygen -t rsa -C &quot;xxxx@qq.com&quot;       #生成密钥，xxx填邮箱地址</code></pre><p>复制密钥后在github上创建两个ssh密钥连接</p><p>一个是sighin一个是auth</p><p>验证可以和github仓库连接后，输入</p><pre><code class="highlight plaintext">hexo g                          #生成html网页hexo d                          #deploy部署到github仓库</code></pre><p>随后访问<a href="https://sudg01.github.io/">https://sudg01.github.io/</a> 即可连接到博客网页</p><p>正好手头上有空闲的域名，使用域名CNAME解析到github仓库博客网页，再在github仓库界面设置好解析的域名，即可正常使用域名访问 <a href="https://sudg01.github.io/">blog.5ux1ng.cn</a></p><h1 id="2-linux的指令学习—在RUNOOB-COM上学习"><a href="#2-linux的指令学习—在RUNOOB-COM上学习" class="headerlink" title="2.linux的指令学习—在RUNOOB.COM上学习"></a><strong>2.linux的指令学习—在RUNOOB.COM上学习</strong></h1><p>由于本机在招新赛时安装了Ubuntu20.04系统，于是直接使用Ubuntu系统进行linux的学习</p><p>Linux系统目录结构</p><p>1.ls 命令</p><pre><code class="highlight linux">ls</code></pre><h2 id="系统根目录下的目录解释"><a href="#系统根目录下的目录解释" class="headerlink" title="系统根目录下的目录解释"></a><strong>系统根目录下的目录解释</strong></h2><p>&#x2F;bin         存放命令                                                                                  &#x2F;media            识别的设备</p><p>&#x2F;boot      存放linux核心文件          &#x2F;mnt                临时文件挂载目录</p><p>&#x2F;dev        即divice，设备文件&#x2F;opt                 额外软件安装目录</p><p>&#x2F;etc         放置所有系统管理所需文件   &#x2F;proc               该目录在系统内存里，而不是在</p><p>​  硬盘里</p><p>&#x2F;home    用户目录                                                  &#x2F;root               超级权限者目录</p><p>&#x2F;lib          库文件      &#x2F;sbin               超级权限者的系统目录</p><p>&#x2F;srv         服务启动后要获取的数据                                                       &#x2F;sys                 系统文件</p><p>&#x2F;tmp       临时文件                                                                                  &#x2F;usr                 类似windows的program files文 件夹</p><p>&#x2F;usr&#x2F;bin   系统用户使用的应用程序     &#x2F;usr&#x2F;sbin        超级用户的程序</p><p>&#x2F;usr&#x2F;src    内核源代码默认目录                                                            &#x2F;var                 经常被修改的目录和各种日志文 件</p><p>&#x2F;run           储蓄启动以来所有的临时文件，系统重启后会清空</p><p>在linux中  <u>.&#x2F;代表当前目录</u>，<u>..&#x2F;代表上级目录</u></p><h2 id="linux文件基本属性"><a href="#linux文件基本属性" class="headerlink" title="linux文件基本属性"></a><strong>linux文件基本属性</strong></h2><p>可以用<strong>ll</strong>或者ls -l来查看文件的属性以及所属的用户和组</p><p>有两个命令可以修改权限，分别为<u>chown</u>和<u>chmod</u>和<u>chgrp</u>命令</p><pre><code class="highlight linux">llls -l                       #查看文件权限</code></pre><p>chown：更改文件所有者<br>chgrp ：更改文件属组</p><p>chmod：更改文件9个属性</p><p>语法</p><pre><code class="highlight linux">chgrp [-R] 属组名 文件名chown [-R] 所有者 文件名chown [-R] 所有者:属组名 文件名</code></pre><p>r:4          w:2        x:1</p><p>owner &#x3D; rwx &#x3D; 4+2+1 &#x3D; 7</p><p>group &#x3D; rwx &#x3D; 4+2+1 &#x3D; 7</p><p>others &#x3D; 0 + 0 + 0 &#x3D; 0</p><p>所以，chmod语法应该是</p><pre><code class="highlight linux">chmod [-R] xyz 文件或目录chmod 777 number</code></pre><h2 id="处理目录的常用指令"><a href="#处理目录的常用指令" class="headerlink" title="处理目录的常用指令"></a><strong>处理目录的常用指令</strong></h2><pre><code class="highlight plaintext">ls       #列出目录cd       #切换目录pwd      #显示目前目录mkdir    #创建一个新的目录rmdir    #删除一个空的目录cp       #复制文件或目录rm       #删除文件或目录mv       #移动文件或目录或修改名称</code></pre><h2 id="用户和用户组管理"><a href="#用户和用户组管理" class="headerlink" title="用户和用户组管理"></a><strong>用户和用户组管理</strong></h2><p>新建账号</p><pre><code class="highlight plaintext">useradd [选项] 用户名</code></pre><p>-c  comment</p><p>-d  目录</p><p>-g  用户组</p><p>-G  用户组 用户组</p><p>-s  Shell文件</p><p>-u  用户号</p><p>删除账号</p><pre><code class="highlight plaintext">userdel -r 用户名             #删除用户并删除主目录</code></pre><p>修改账号</p><pre><code class="highlight plaintext">usermod 选项 用户名</code></pre><p>用户名口令的管理</p><pre><code class="highlight plaintext">passwd 选项 用户名</code></pre><p>-l   禁用账号</p><p>-u    口令解锁</p><p>-d    使账号无口令</p><p>-f     强迫用户下次登录时修改口令</p><p>增加用户组以及删除用户组和用户组属性的修改</p><pre><code class="highlight plaintext">groupadd 选项 用户组groupdel 用户组groupmod 选项 用户组</code></pre><p>-g GID 制定新的组标识号</p><p>-o -g 新用户可以与系统已有用户组的GID相同</p><p>-n 新用户组</p><h2 id="VI-VIM"><a href="#VI-VIM" class="headerlink" title="VI&#x2F;VIM"></a><strong>VI&#x2F;VIM</strong></h2><p>![图片](&#x2F;img&#x2F;vim.png “vim键盘指令”)</p><pre><code class="highlight plaintext">i               #切换到输入模式，在光标当前位置开始输入文本x               #删除当前光标所在处的字符:               #切换到底线命令模式，以在最底一行输入命令a               #进入插入模式，在光标下一个位置开始输入文本o：             #在当前行的下方插入一个新行，并进入插入模式O               #在当前行的上方插入一个新行，并进入插入模式dd              #剪切当前行yy              #复制当前行p               #粘贴剪贴板内容到光标下方P               #粘贴剪贴板内容到光标上方u               #撤销上一次操作Ctrl + r        #重做上一次撤销的操作:w              #保存文件:q              #退出 Vim 编辑器:q!             #强制退出Vim 编辑器，不保存修</code></pre><h2 id="yum和apt"><a href="#yum和apt" class="headerlink" title="yum和apt"></a><strong>yum和apt</strong></h2><p>由于yum指令是在CentOS&#x2F;redshell等系统上默认使用的，而Ubuntu是默认使用apt指令，安装yum库报错，所以我重点先学习apt</p><p>通常安装软件包更多还是使用apt-get，apt-get属于apt，属于更底层的工具，可以更好地控制包管理过程</p><p>使用apt指令的时候需要管理员权限，所以一般会在指令前加sudo指令，以超级用户权限进行操作</p><p>安装包</p><pre><code class="highlight plaintext">sudo apt install 包名sudo apt-get install 包名         #均为安装包</code></pre><p>检测是否存在并升级</p><pre><code class="highlight plaintext">sudo apt install 包名 --no-upgrade</code></pre><p>只升级，如果不存在就不升级</p><pre><code class="highlight plaintext">sudo apt install 包名 --only-upgrade</code></pre><p>移除包</p><pre><code class="highlight plaintext">sudo apt remove 包名</code></pre><p>还有一些小tip：</p><p>ctrl+c可以关闭不需要的实例</p><p>Tab键可以补齐指令</p><p>第一周的学习非常充实</p><p>学习了github的基本使用以及博客和github的联系使用</p><p>还有linux的一些基本使用方式</p><p>内容非常多，还需要多巩固复习！！！</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 周报 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> weekly </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>欢迎来到SU小喵の小站</title>
       <link href="/2024/09/29/%E6%AC%A2%E8%BF%8E%E6%9D%A5%E5%88%B0SU%E5%B0%8F%E5%96%B5%E3%81%AE%E5%B0%8F%E7%AB%99/"/>
       <url>/2024/09/29/%E6%AC%A2%E8%BF%8E%E6%9D%A5%E5%88%B0SU%E5%B0%8F%E5%96%B5%E3%81%AE%E5%B0%8F%E7%AB%99/</url>
       
         <content type="html"><![CDATA[<p>Hallo，大家好！！</p><p>这里是SUX1NG，是一只小狐喵</p><p>随着时间的推移，小喵也是来到了大学，见识到了许多新的事物，也向着更发高难度的学业开始了自己的旅程 为此，小喵建设了一个属于自己的blog，以此来记录小喵在大学四年的学习生活，并希望能够记录到许多美好的事物&#x3D; v &#x3D; </p><p>emmmmmmmmmm</p><p>最后 </p><p>欢迎你来访问我的小网站！！！！！ </p><p>xwx</p>]]></content>
       
+      
+      <categories>
+          
+          <category> 周报 </category>
+          
+      </categories>
       
       
         <tags>
