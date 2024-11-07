@@ -4,23 +4,48 @@
   
     
     <entry>
-      <title>ArchLinux系统的安装</title>
-      <link href="/2024/10/30/ArchLinux%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%AE%89%E8%A3%85/"/>
-      <url>/2024/10/30/ArchLinux%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%AE%89%E8%A3%85/</url>
+      <title>C++学习</title>
+      <link href="/2024/11/07/C-%E5%AD%A6%E4%B9%A0/"/>
+      <url>/2024/11/07/C-%E5%AD%A6%E4%B9%A0/</url>
       
-        <content type="html"><![CDATA[<h1 id="使用VMware安装ArchLinux系统"><a href="#使用VMware安装ArchLinux系统" class="headerlink" title="使用VMware安装ArchLinux系统"></a>使用VMware安装ArchLinux系统</h1><p>1.创建虚拟机</p><p>在vmware中选择典型，选择下载好的镜像文件，版本选择Linux5.x内核64位安装</p><p><img src="https://github.com/SUDG01/tuchuang/blob/main/archlinux/arc1.png?raw=true"></p><p>然后自定义好硬件设置后，在管理-&gt;选项中，选择uefi模式启动</p><p><img src="https://github.com/SUDG01/tuchuang/blob/main/archlinux/Arc2.png?raw=true"></p><p>启动虚拟机，即可进入到livecd界面</p><p>和普通linux一样，使用passwd设置好root密码后，可以用Xshell本地连接（方便粘贴）</p><p>输入ip addr即可获得本地连接地址</p><p><img src="https://github.com/SUDG01/tuchuang/blob/main/archlinux/Arc3.png?raw=true"></p><p>再输入 vim &#x2F;etc&#x2F;pacman.d&#x2F;mirrorlist，进入后全部删掉替换成国内软件源</p><p>输入</p><pre><code class="highlight plaintext">pacman -Syy</code></pre>]]></content>
+        <content type="html"><![CDATA[<h1 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h1><p>在完成了对C语言的学习后，我打算再更深一步学习C语言的升级版本，C++，本篇文章我将作为学习C++的一篇总结笔记，相较C语言的学习，我将不会把一些系统底层的知识写在里面，仅仅是针对C++的一篇笔记</p><h2 id="一-对C-的初步探索"><a href="#一-对C-的初步探索" class="headerlink" title="一.对C++的初步探索"></a>一.对C++的初步探索</h2><p>hello world在C++中的写法：</p><p><img src="https://github.com/SUDG01/tuchuang/blob/main/C++Learn/Cp.png?raw=true"></p><p>C++相比C语言，C++程序可以定义为对象的集合，这些对象通过调用彼此的方法进行交互（面向对象的编程语言）</p><br/><p>甚至在C++中，可以在一行放多个代码，如：</p><p>![屏幕截图 2024-11-07 215743](<a href="https://raw.githubusercontent.com/SUDG01/tuchuang/main/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE">https://raw.githubusercontent.com/SUDG01/tuchuang/main/屏幕截图</a> 2024-11-07 215743.png)</p><h3 id="三字符组"><a href="#三字符组" class="headerlink" title="三字符组"></a>三字符组</h3><p>总是以两个问号开头，可以用于替换某些字符，以下为常用的字符序列</p><p><img src="https://raw.githubusercontent.com/SUDG01/tuchuang/main/image-20241107220233243.png" alt="image-20241107220233243"></p><br/><p>对所大部分编程语言通用，但还是提一嘴，除了用于分隔代码的空格，多的C++（包括其他语言）编译器都忽略不计</p>]]></content>
       
       
       <categories>
           
-          <category> others </category>
+          <category> 周报 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> others </tag>
+            <tag> weekly </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>多线程的使用</title>
+      <link href="/2024/11/07/C%E8%AF%AD%E8%A8%80%E4%B8%AD%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+      <url>/2024/11/07/C%E8%AF%AD%E8%A8%80%E4%B8%AD%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+      
+        <content type="html"><![CDATA[<h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><h2 id="一-线程-Thread"><a href="#一-线程-Thread" class="headerlink" title="一.线程(Thread)"></a>一.线程(Thread)</h2><p>定义：一个线程就是一个”执行流”，每个线程之间都可以按照顺序执行字节的代码，可以”同时”执行着多份代码，其中，main()一般被称为主线程(Main Thread)</p><p>多进程同样可以实现同时执行任务，但是</p><p><strong>线程比进程更加轻量</strong></p><p>而且，人们为了更进一步，又诞生出了，”线程池”和”协程”</p><br/><h3 id="进程和线程的区别？"><a href="#进程和线程的区别？" class="headerlink" title="进程和线程的区别？"></a>进程和线程的区别？</h3><ul><li>进程是包含线程的，每个进程至少有一个线程存在，即主线程</li><li>进程和进程之间不共享内存空间，同一个进程之间共享同一个内存空间</li><li>进程是系统分配资源的最小单位，线程是系统调度的最小单位</li><li>一个进程挂了一般不会影响到其他进程，但是可能会把进程内的线程一起带走</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 周报 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> weekly </tag>
             
         </tags>
       
