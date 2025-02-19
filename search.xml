@@ -4,11 +4,24 @@
   
     
     <entry>
+      <title>个人AI模型分享</title>
+      <link href="/2025/02/19/%E4%B8%AA%E4%BA%BAAI%E6%A8%A1%E5%9E%8B%E5%88%86%E4%BA%AB/"/>
+      <url>/2025/02/19/%E4%B8%AA%E4%BA%BAAI%E6%A8%A1%E5%9E%8B%E5%88%86%E4%BA%AB/</url>
+      
+        <content type="html"><![CDATA[<h1 id="AI模型分享页"><a href="#AI模型分享页" class="headerlink" title="AI模型分享页"></a>AI模型分享页</h1><h2 id="一-RVC模型"><a href="#一-RVC模型" class="headerlink" title="一.RVC模型"></a>一.RVC模型</h2><p>1.北部玄驹(KitasanBlack)</p><p>训练素材总数:210</p><p>下载地址：<br><a href="https://pan.baidu.com/s/15s9SzcSxlOfToIcHXNmUtA?pwd=kita">https://pan.baidu.com/s/15s9SzcSxlOfToIcHXNmUtA?pwd=kita</a></p><p><img src="https://github.com/SUDG01/tuchuang/blob/main/meit/kitasan1.png?raw=true"></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>C++学习</title>
       <link href="/2024/11/07/C-%E5%AD%A6%E4%B9%A0/"/>
       <url>/2024/11/07/C-%E5%AD%A6%E4%B9%A0/</url>
       
-        <content type="html"><![CDATA[<h1 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h1><p>在完成了对C语言的学习后，我打算再更深一步学习C语言的升级版本，C++，本篇文章我将作为学习C++的一篇总结笔记，相较C语言的学习，我将不会把一些系统底层的知识写在里面，仅仅是针对C++的一篇笔记</p><h2 id="一-对C-的初步探索"><a href="#一-对C-的初步探索" class="headerlink" title="一.对C++的初步探索"></a>一.对C++的初步探索</h2><p>hello world在C++中的写法：</p><p><img src="https://github.com/SUDG01/tuchuang/blob/main/C++Learn/Cp.png?raw=true"></p><p>C++相比C语言，C++程序可以定义为对象的集合，这些对象通过调用彼此的方法进行交互（面向对象的编程语言）</p><br/><p>甚至在C++中，可以在一行放多个代码，如：</p><p>![屏幕截图 2024-11-07 215743](<a href="https://raw.githubusercontent.com/SUDG01/tuchuang/main/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE">https://raw.githubusercontent.com/SUDG01/tuchuang/main/屏幕截图</a> 2024-11-07 215743.png)</p><h3 id="三字符组"><a href="#三字符组" class="headerlink" title="三字符组"></a>三字符组</h3><p>总是以两个问号开头，可以用于替换某些字符，以下为常用的字符序列</p><p><img src="https://raw.githubusercontent.com/SUDG01/tuchuang/main/image-20241107220233243.png" alt="image-20241107220233243"></p><br/><p>对所大部分编程语言通用，但还是提一嘴，除了用于分隔代码的空格，多的C++（包括其他语言）编译器都忽略不计</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h1><p>在完成了对C语言的学习后，我打算再更深一步学习C语言的升级版本，C++，本篇文章我将作为学习C++的一篇总结笔记，相较C语言的学习，我将不会把一些系统底层的知识写在里面，仅仅是针对C++的一篇笔记</p><h2 id="一-对C-的初步探索"><a href="#一-对C-的初步探索" class="headerlink" title="一.对C++的初步探索"></a>一.对C++的初步探索</h2><p>hello world在C++中的写法：</p><p><img src="https://github.com/SUDG01/tuchuang/blob/main/C++Learn/Cp.png?raw=true"></p><p>C++相比C语言，C++程序可以定义为对象的集合，这些对象通过调用彼此的方法进行交互（面向对象的编程语言）</p><br/><p>甚至在C++中，可以在一行放多个代码，如：</p><p>![屏幕截图 2024-11-07 215743](<a href="https://raw.githubusercontent.com/SUDG01/tuchuang/main/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE">https://raw.githubusercontent.com/SUDG01/tuchuang/main/屏幕截图</a> 2024-11-07 215743.png)</p><p>using namespace std是告诉编译器使用std命名空间</p><h3 id="三字符组"><a href="#三字符组" class="headerlink" title="三字符组"></a>三字符组</h3><p>总是以两个问号开头，可以用于替换某些字符，以下为常用的字符序列</p><p><img src="https://raw.githubusercontent.com/SUDG01/tuchuang/main/image-20241107220233243.png" alt="image-20241107220233243"></p><br/><p>对所大部分编程语言通用，但还是提一嘴，除了用于分隔代码的空格，多的C++（包括其他语言）编译器都忽略不计</p>]]></content>
       
       
       <categories>
