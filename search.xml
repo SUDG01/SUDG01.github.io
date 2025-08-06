@@ -4,6 +4,44 @@
   
     
     <entry>
+      <title>Pytorch学习2</title>
+      <link href="/2025/08/04/Pytorch%E5%AD%A6%E4%B9%A02/"/>
+      <url>/2025/08/04/Pytorch%E5%AD%A6%E4%B9%A02/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Pytorch学习2"><a href="#Pytorch学习2" class="headerlink" title="Pytorch学习2"></a>Pytorch学习2</h1><h2 id="神经网络的架构"><a href="#神经网络的架构" class="headerlink" title="神经网络的架构"></a>神经网络的架构</h2><p><img src="https://raw.githubusercontent.com/SUDG01/tuchuang/main/image-20250804183850912.png" alt="image-20250804183850912"></p><p><strong>inputs</strong>为输入，<strong>weights</strong>为权重</p><p>每个数据与不同权重相乘后加和，加上偏差后的结果x丢进激活函数中，即f(x)最后得到output后，再把output传给下一层神经网络，使损失函数收敛到最小后得到最终结果</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> learnbyself </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Pytorch学习1</title>
+      <link href="/2025/08/04/Pytorch%E5%AD%A6%E4%B9%A01/"/>
+      <url>/2025/08/04/Pytorch%E5%AD%A6%E4%B9%A01/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Pytorch深度学习-1"><a href="#Pytorch深度学习-1" class="headerlink" title="Pytorch深度学习(1)"></a>Pytorch深度学习(1)</h1><h2 id="如果想要用pytorch让计算机认出一只猫，一共需要5步"><a href="#如果想要用pytorch让计算机认出一只猫，一共需要5步" class="headerlink" title="如果想要用pytorch让计算机认出一只猫，一共需要5步"></a>如果想要用pytorch让计算机认出一只猫，一共需要5步</h2><p><strong>准备数据<br></strong></p><p><strong>定义模型<br></strong></p><p><strong>训练模型<br></strong></p><p><strong>评估模型<br></strong></p><p><strong>做出预测</strong></p><br><h3 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h3><p>如果我们遇到不会的题目，我们可以通过学习资料的帮助，来学会这个问题</p><p>计算机同理，我们需要准备大量的数据，让计算机明白这个问题的解决方案</p><p>pytorch中</p><pre><code class="highlight python"><span class="keyword">import</span> torchvision                <span class="comment">#模块         </span></code></pre><p>该模块提供了一些已有数据集的直接导入<br>包括<strong>CIFAR，COCO，imagineNet，MNIST</strong>等文本数据集以及音频数据集等常见数据集</p><p>以下是一段获取数据的方式</p><pre><code class="highlight python"><span class="keyword">from</span> torch.utils.data <span class="keyword">import</span> DataLoader<span class="keyword">from</span> torchvision.datasets <span class="keyword">import</span> MNIST<span class="keyword">from</span> torchvision.transforms <span class="keyword">import</span> Compose<span class="keyword">from</span> torchvision.transforms <span class="keyword">import</span> ToTensor<span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot<span class="comment">#以上为导入模块</span>path = <span class="string">&#x27;./datasets/mnist&#x27;</span><span class="comment">#定义数据集的位置</span>trans = Compose([ToTensor()])<span class="comment">#下载并定义数据集</span>train = MNIST(path, train=<span class="literal">True</span> , download=<span class="literal">True</span> , transform=trans)test = MNIST(path, train=<span class="literal">False</span> , download=<span class="literal">True</span> , transform=trans)<span class="comment">#定义如何枚举数据集</span>train_dl = DataLoader(train, batch_size=<span class="number">32</span>, shuffle=<span class="literal">True</span>)test_dl = DataLoader(test, batch_size=<span class="number">32</span>, shuffle=<span class="literal">True</span>)<span class="comment">#以batch方式获取图片</span>i , (inputs,targets) = <span class="built_in">next</span>(<span class="built_in">enumerate</span>(train_dl))<span class="comment">#绘图，进行展示</span><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">25</span>):    pyplot.subplot(<span class="number">5</span>,<span class="number">5</span>,i+<span class="number">1</span>)    pyplot.imshow(<span class="built_in">input</span>[i][<span class="number">0</span>],cmap=<span class="string">&#x27;gray&#x27;</span>)pyplot.show()</code></pre><p>MNIST是官方提供的手写数据集，path即为下载保存的位置</p><p>trans在此处被定义成图像的预处理方式</p><pre><code class="highlight python">Compose([ToTensor()])</code></pre><p><strong>Compose</strong>是一个顺序处理图像的方法，<strong>ToTensor</strong>是因为pytorch中只能处理Tensor数据，而不能直接处理图像数据</p><pre><code class="highlight python">train = MNIST(path, train=<span class="literal">True</span> , download=<span class="literal">True</span> , transform=trans)</code></pre><p><strong>path</strong>是指定查找数据集或下载数据集的位置</p><p><strong>train</strong>值为True则使用6万训练集，<strong>False</strong>则用1万的测试集</p><p><strong>download</strong>则为是否要下载数据集</p><p><strong>transform</strong>是预处理操作（常见变换Normalize() <strong>方差归一化</strong>，RandomCrop() <strong>图像大小调整</strong>）<br></p><pre><code class="highlight python">train_dl = DataLoader(train, batch_size=<span class="number">32</span>, shuffle=<span class="literal">True</span>)<span class="comment">#创建数据加载器</span><span class="comment">#1：数据集，2：每个队列的大小，3：是否打乱</span></code></pre><pre><code class="highlight python">i , (inputs,targets) = <span class="built_in">next</span>(<span class="built_in">enumerate</span>(train_dl))<span class="comment">#enumerate(train_dl)返回一个(index,(inputs, targets))元组</span><span class="comment">#inputs [32,1,28,28]:32张图片，1通道（灰度图），28*28像素</span></code></pre><br><h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h3><p><strong>定义模型</strong><br></p><p>需要导入3个概念：<strong>卷积层</strong>，<strong>池化层</strong>，<strong>全连接层</strong></p><h4 id="卷积层"><a href="#卷积层" class="headerlink" title="卷积层"></a>卷积层</h4><p>是计算机认识一张图片最基础的步骤。把一张图像，转换为一系列由0和1组成的数据矩阵<br></p><h4 id="池化层"><a href="#池化层" class="headerlink" title="池化层"></a>池化层</h4><p>把原来很大的图像矩阵压缩，变成一张更小更容易计算的图像矩阵</p><h4 id="全连接层"><a href="#全连接层" class="headerlink" title="全连接层"></a>全连接层</h4><p>把更小的图像展开成一段数据<br></p><h3 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h3><p><strong>训练模型</strong></p><p>将训练数据输入模型，计算损失并调整更新模型参数，这样重复进行多个周期，直到模型很好的学习到了训练数据里的特征</p><p>训练过程中，我们需要定义<strong>损失函数</strong>和<strong>优化器</strong></p><p><strong>损失函数</strong>：用于衡量模型预测的准确性</p><p><strong>优化器</strong>：用于调整模型的参数<br></p><h3 id="第四步"><a href="#第四步" class="headerlink" title="第四步"></a>第四步</h3><p><strong>评估模型</strong></p><p>例如：现在是判断手写数字，我们需要用训练好的模型判断一下，是不是和我们写下的数字一致</p><h3 id="第五步"><a href="#第五步" class="headerlink" title="第五步"></a>第五步</h3><p><strong>做出预测</strong></p><p>即使用模型</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> learnbyself </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>大一下近代史复习</title>
       <link href="/2025/06/04/%E5%A4%A7%E4%B8%80%E4%B8%8B%E8%BF%91%E4%BB%A3%E5%8F%B2%E5%A4%8D%E4%B9%A0/"/>
       <url>/2025/06/04/%E5%A4%A7%E4%B8%80%E4%B8%8B%E8%BF%91%E4%BB%A3%E5%8F%B2%E5%A4%8D%E4%B9%A0/</url>
