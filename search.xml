@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>MeowClient Release</title>
+      <link href="/2025/08/17/Release/"/>
+      <url>/2025/08/17/Release/</url>
+      
+        <content type="html"><![CDATA[<h1 id="MeowClient-Release"><a href="#MeowClient-Release" class="headerlink" title="MeowClient Release"></a>MeowClient Release</h1><h3 id="2025-8-17-reborn-0-2-1"><a href="#2025-8-17-reborn-0-2-1" class="headerlink" title="2025&#x2F;8&#x2F;17 reborn 0.2.1"></a>2025&#x2F;8&#x2F;17 reborn 0.2.1</h3><p>[+]combat添加了AutoClicker(默认14-16cps)</p><p>[+]movement添加了NoJumpDelay</p><p>Download Link: <a href="https://wwxs.lanzouq.com/i67uP33r6zbg">https://wwxs.lanzouq.com/i67uP33r6zbg</a></p><br><h3 id="2025-8-15-reborn-0-2"><a href="#2025-8-15-reborn-0-2" class="headerlink" title="2025&#x2F;8&#x2F;15 reborn 0.2"></a>2025&#x2F;8&#x2F;15 reborn 0.2</h3><p>[+]视觉模块添加了ClickGui，FullBright，NameTag<br>[+]安全模块增加了AutoTool<br>[+]修复了ESP的已知bug（现在可穿墙透视）<br>[+]优化了NoClickDelay的攻击手感<br>[-]暂时关闭了Animations</p><br><h3 id="2025-7-28-reborn-0-1-2"><a href="#2025-7-28-reborn-0-1-2" class="headerlink" title="2025&#x2F;7&#x2F;28 reborn 0.1.2"></a>2025&#x2F;7&#x2F;28 reborn 0.1.2</h3><p>[+]增加了draw，combat，world模块<br>[+]增加了tab，esp等安全mod<br>[+]增加了NoClickdelay,Fastplace等危险mod（暂未测试，造成的封禁概不负责）<br>[+]支持中文输入</p><p>Q1:为什么我一打开跟原版一样？<br>A1:聊天栏输入.enable tab即可用小键盘控制mod开关</p><p>Q2:为什么我使用PCL启动的是原版1.8.8<br>A2:PCL2会自动替换.jar文件，请在设置中关掉文件校验，或者添加虚拟机jvm参数-noverify</p><br><h3 id="2025-7-26-update"><a href="#2025-7-26-update" class="headerlink" title="2025&#x2F;7&#x2F;26 update"></a>2025&#x2F;7&#x2F;26 update</h3><p>[+]增加了Sprint<br>[+]增加了ArrayList<br>tips:1.暂时使用默认keybind，无法修改，Sprint:v，ArrayList:数字0<br>2.暂未测试过功能是否合法，所有因为本客户端造成的封禁概不负责</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> G3t5tart </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Pytorch学习2</title>
       <link href="/2025/08/04/Pytorch%E5%AD%A6%E4%B9%A02/"/>
       <url>/2025/08/04/Pytorch%E5%AD%A6%E4%B9%A02/</url>
