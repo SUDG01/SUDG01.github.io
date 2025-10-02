@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>linux操作系统</title>
+      <link href="/2025/10/02/linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+      <url>/2025/10/02/linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Linux操作系统底层的学习"><a href="#Linux操作系统底层的学习" class="headerlink" title="Linux操作系统底层的学习"></a>Linux操作系统底层的学习</h1><h2 id="一-简述"><a href="#一-简述" class="headerlink" title="一.简述"></a>一.简述</h2><h3 id="1-内核"><a href="#1-内核" class="headerlink" title="1.内核"></a>1.内核</h3><p><strong>定义</strong>：在纯技术层面上，内核是硬件与软件之间的一个中间层。作用是将应用程序的请求传递给硬件，冰充当底层驱动程序，对系统中的各种设备和组件进行寻址。<br></p><p>实现策略上，有两种主要的范型：</p><p>(1) <strong>微内核</strong>：只实现最基本的功能，其他功能委托给一些独立进程，这些进程通过明确定义的通信接口与中心内核通信。</p><p>(2) <strong>宏内核</strong>：与微内核相反，所有代码和子系统都打包到一个文件中，每个函数都可以访问内核中所有其他部分。<br></p><p><strong>内核的组成部分：</strong></p><p><img src="https://raw.githubusercontent.com/SUDG01/tuchuang/main/image-20251002211509470.png" alt="image-20251002211509470"></p><h3 id="2-进程与线程"><a href="#2-进程与线程" class="headerlink" title="2.进程与线程"></a>2.进程与线程</h3><p><strong>定义：</strong>UNIX系统中运行的应用程序，服务器以及其他程序都成为<strong>进程</strong></p><p>在<strong>linux</strong>中，用fork创建进程（进程和父进程一样，但是却是一个个独立的个体，各自的地址空间是独立的，资源相同，开销较大），用clone创建线程(线程则是相当于一个个小分身，但是却共享同一个资源，开销较少)</p><p><img src="https://raw.githubusercontent.com/SUDG01/tuchuang/main/image-20251002212336030.png" alt="image-20251002212336030"></p><h3 id="3-地址空间"><a href="#3-地址空间" class="headerlink" title="3.地址空间"></a>3.地址空间</h3><p>一般用页表来为<strong>物理地址</strong>分配<strong>虚拟地址</strong>，虚拟地址关系到进程的用户空间和内核空间，而物理地址则用来寻址实际可用的内存。</p><p>这两个进程的虚拟地址空间，都被内核分成很多等长的部分，这些部分被称为页，物理内存也划分为同样大小的页</p><p><img src="https://raw.githubusercontent.com/SUDG01/tuchuang/main/image-20251002213712761.png" alt="image-20251002213712761"></p><p><strong>物理内存页</strong>经常称作<strong>页帧</strong>，页则指<strong>虚拟地址空间</strong>的<strong>页</strong></p><br><p><strong>页表：</strong>用来将虚拟地址空间映射到物理地址空间的数据结构称为页表</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> learnbyself </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>MeowClient Release</title>
       <link href="/2025/08/17/Release/"/>
       <url>/2025/08/17/Release/</url>
