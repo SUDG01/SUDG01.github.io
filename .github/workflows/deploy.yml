@@ -1,22 +1,4 @@
-GitHub Actions 工作流：自动部署 Vue/Vite 应用到 GitHub Pages
-name: Deploy to GitHub Pages
-
-on:
-push:
-branches:
-- main
-workflow_dispatch:
-
-permissions:
-contents: read
-pages: write
-id-token: write
-
-jobs:
-build-and-deploy:
-runs-on: ubuntu-latest
-
-environment:
+GitHub Actions 工作流：自动部署 Vue/Vite 应用到 GitHub Pagesname: Deploy to GitHub Pageson:push:branches:- mainworkflow_dispatch:permissions:contents: readpages: writeid-token: writejobs:build-and-deploy:runs-on: ubuntu-latestenvironment:
   name: github-pages
   url: ${{ steps.deployment.outputs.page_url }}
 

@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHashHistory } from "vue-router";
 //路由文件
 import Home from "../views/Home.vue";
 import About from "../views/About.vue";
@@ -14,7 +14,7 @@ const routes = [
 
 //创建路由
 const router = createRouter({
-    history: createWebHistory(),
+    history: createWebHashHistory(),
     routes,
 });
 
