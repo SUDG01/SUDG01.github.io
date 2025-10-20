@@ -80,6 +80,19 @@ button:focus-visible {
   background-color: #fffafc;
 }
 
+#nprogress .bar {
+  height: 5px !important;
+  background: linear-gradient(90deg, #ff9acd, #ff82a9) !important;
+}
+
+#nprogress .peg {
+  box-shadow: 0 0 8px #ffb6c1, 0 0 5px #ff82a9 !important;
+}
+
+#nprogress .spinner {
+  display: none; /* 不显示小圆圈 */
+}
+
 section,div {
   margin: 0 auto;
   padding: 0;

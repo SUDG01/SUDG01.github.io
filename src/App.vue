@@ -58,7 +58,7 @@ onUnmounted(() => {
   align-items: center;
   transition: all 0.4s ease;
   z-index: 100;
-  background: rgba(255, 255, 255, 0); /* 默认透明 */
+  background: rgba(255, 255, 255, 0);
   box-shadow: none;
   backdrop-filter: blur(3px);
 }
@@ -140,4 +140,5 @@ html, body {
   width: 100%;
   overflow-x: hidden;
 }
+
 </style>

@@ -4,7 +4,7 @@
     <section class="hero">
       <div class="overlay"></div>
       <div class="hero-content">
-        <h1>呜喵呜喵呜喵呜喵3,2,1 fight!</h1>
+        <h1>小猫不许哈气!</h1>
         <p class="typing">{{  displayedText  }}<span class="cursor">|</span></p> 
       </div>
     </section>
