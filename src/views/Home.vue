@@ -1,32 +1,151 @@
 <template>
+  <div class="home">
+    <!-- 图片 -->
+    <section class="hero">
+      <div class="overlay"></div>
+      <div class="hero-content">
+        <h1>呜喵呜喵呜喵呜喵3,2,1 fight!</h1>
+        <p class="typing">{{  displayedText  }}<span class="cursor">|</span></p> 
+      </div>
+    </section>
+  </div>
+
+  <section ref="post-section" class="post-section">
     <div class="post-list">
-        <h1>文章列表</h1>
         <el-card v-for="post in posts" :key="post.id" class="post-card" shadow="hover">
             <template #header>
                 <div class="card-header">
                     <router-link :to="'/post/'+ post.id">{{ post.frontmatter.title }}</router-link>
                 </div>
             </template>
-            <p class="excerpt">{{ post.frontmatter.excerpt }}</p>
+            <p class="excerpt">{{ post.excerpt }}</p>
             <small class="date">发布于: {{ post.frontmatter.date }}</small>
         </el-card>
     </div>
+  </section>
 </template>
 
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import { getAllPosts } from '../api/posts';
 
 const postsData = getAllPosts();
 const posts = ref(postsData);
 
+const messages = [
+  '这里是喵喵的学习空间～',
+  '正在加载猫猫能量...',
+  'tips:背景是SU喵本喵哦～'
+]
+
+const displayedText = ref('')
+let messageIndex = 0
+let charIndex = 0
+let isDeleting = false
+
+const typingSpeed = 120
+const deletingSpeed = 60
+const pauseTime = 1000
+
+function type() {
+  const current = messages[messageIndex]
+  if (!isDeleting && charIndex <= current.length) {
+    displayedText.value = current.slice(0, charIndex++)
+    setTimeout(type, typingSpeed)
+  } else if (isDeleting && charIndex >= 0) {
+    displayedText.value = current.slice(0, charIndex--)
+    setTimeout(type, deletingSpeed)
+  } else if (charIndex > current.length) {
+    isDeleting = true
+    setTimeout(type, pauseTime)
+  } else if (charIndex < 0) {
+    isDeleting = false
+    messageIndex = (messageIndex + 1) % messages.length
+    displayedText.value = ''
+    charIndex = 0
+    setTimeout(type, pauseTime/2)
+  }
+}
+
+onMounted(() => {
+  type()
+})
+
 </script>
 
 
 <style scoped>
+.home {
+  font-family: "Comic Sans MS", "Microsoft YaHei", sans-serif;
+  color: #444;
+  background-color: #fffafc;
+}
 
-.post-list h1 {
+.hero {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-image: url('/2k-SU.jpg');
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.post-section {
+  background-color: #fffafc;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  margin-top: -40px;
+  padding: 60px 10%;
+  box-shadow: 0 -5px 20px rgba(255, 182, 193, 0.15);
+}
+
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+  animation: fadeIn 1.0s ease;
+  text-align: center;
+}
+
+.cursor {
+  display: inline-block;
+  animation: blink 0.8s step-end infinite;
+}
+
+.typing {
+  display: inline-block;
+  font-size: 1.4rem;
+  white-space: nowrap;
+  overflow: hidden;
+  min-height: 2rem;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
+}
+
+
+.post-list h2 {
   font-size: 2.5rem;
   color: #ba6f86;
   margin-bottom: 30px;
@@ -63,10 +182,9 @@ const posts = ref(postsData);
 }
 
 .excerpt {
-  color: #333;
-  font-size: 16px;
-  line-height: 1.7;
-  margin: 10px 0;
+  font-size: 14px;
+  color: #555;
+  margin: 16px 0;
 }
 
 .date {
@@ -74,6 +192,12 @@ const posts = ref(postsData);
   font-size: 14px;
 }
 
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
 
 @keyframes fadeIn {
   from {

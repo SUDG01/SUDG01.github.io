@@ -7,13 +7,11 @@
         </el-page-header>
         <el-divider />
 
-        <h1>{{ post.frontmatter.title }}</h1>
         <div class="post-meta">
             <span>
                 发布于：{{ post.frontmatter.date }}
             </span>
         </div>
-        <!-- 核心修复：使用 v-html 渲染 HTML 内容，并使用 post.content 字段 -->
         <div class="post-content" v-html="post.content">
         </div>
     </div>
@@ -28,19 +26,13 @@
 import { useRoute, useRouter } from 'vue-router';
 import { ref, onMounted } from 'vue';
 import { getPostById } from '../api/posts';
-// 只需要 getPostById，不需要 getAllPosts
-// import { getAllPosts } from '../api/posts'; 
 
-// 移除不需要的全局变量
-// const postsData = getAllPosts(); 
-// const posts = ref(postsData); 
 
 const route = useRoute();
 const router = useRouter();
 const post = ref(null);
 
 onMounted(()=>{
-    // 核心修复：移除 Number() 转换，保持 postId 为字符串
     const postId = route.params.id; 
     post.value = getPostById(postId);
 })
@@ -52,7 +44,12 @@ const goback = () => {
 </script>
 
 <style scoped>
-/* 添加对渲染后 HTML 的样式，否则会很难看 */
+.post-content :deep(h1),
+.post-content :deep(h2),
+.post-content :deep(h3) {
+  color: #ba6f86;
+}
+
 .post-content :deep(h3) {
   margin-top: 20px;
   margin-bottom: 10px;
@@ -60,13 +57,15 @@ const goback = () => {
   padding-bottom: 5px;
 }
 .post-content :deep(pre) {
-  background-color: #f4f4f4;
+  background-color: #fdf0f5;
   padding: 15px;
-  border-radius: 5px;
+  border-radius: 10px;
   overflow-x: auto;
 }
 .post-content :deep(code) {
-  font-family: 'Courier New', Courier, monospace;
+  background: #ffe6f0;
+  padding: 2px 5px;
+  border-radius: 5px;
 }
 .post-content :deep(blockquote) {
   border-left: 4px solid #ccc;
@@ -75,8 +74,12 @@ const goback = () => {
   margin-left: 0;
 }
 .post-detail {
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: 1280px;
+  margin: 20px auto;
+  background: rgba(255, 255, 255, 0.85); /* 浅色背景 */
+  padding: 30px 25px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(255, 182, 193, 0.2); /* 二次元柔和阴影 */
 }
 .page-header {
   margin-bottom: 20px;
@@ -87,5 +90,9 @@ const goback = () => {
 }
 .post-content {
   line-height: 1.7;
+}
+
+.main {
+  padding-top: 100px; 
 }
 </style>

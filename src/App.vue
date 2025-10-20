@@ -1,6 +1,6 @@
 <template>
   <el-container class="app-container">
-    <el-header class="header">
+    <el-header :class="['header',{ 'scrolled': isScrolled }]">
       <div class="logo">SU的小窝～</div>
       <el-menu mode="horizontal" router class="menu" background-color="transparent">
         <el-menu-item index="/">首页</el-menu-item>
@@ -19,11 +19,27 @@
 </template>
 
 
-<script>
-//setup
+<script setup>
+import {ref, onMounted, onUnmounted} from 'vue';
+
+const isScrolled = ref(false);
+
+const handleScroll = () => {
+  isScrolled.value = window.scrollY > 80;
+};
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll);
+});
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll);
+});
+
+  
 </script>
 
 <style scoped>
+
 .app-container {
   min-height: 100vh;
   display: flex;
@@ -32,15 +48,24 @@
 }
 
 .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 40px;
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(8px);
-  border-bottom: 2px solid rgba(255, 182, 193, 0.4);
-  box-shadow: 0 4px 10px rgba(255, 182, 193, 0.2);
-  border-radius: 0 0 20px 20px;
+  transition: all 0.4s ease;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0); /* 默认透明 */
+  box-shadow: none;
+  backdrop-filter: blur(3px);
+}
+
+.header.scrolled {
+  background: rgba(255, 255, 255, 0.9); /* 滚动后变白 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
@@ -66,6 +91,18 @@
 .menu {
   border: none;
   background: transparent;
+}
+
+
+.el-menu-item {
+  font-weight: bold;
+  color: #ff82a9;
+  text-shadow: 0 0 6px rgba(255, 192, 203, 0.7);
+  transition: transform 0.3s;
+}
+
+.el-menu-item.is-active {
+  border-bottom: 2px solid #ff82a9
 }
 
 .el-menu-item:hover {
@@ -95,5 +132,12 @@
 
 .el-main {
   min-height: calc(100vh - 122px);
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
 }
 </style>

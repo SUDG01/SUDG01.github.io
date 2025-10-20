@@ -34,6 +34,14 @@ function parseMarkdown(rawContent) {
 }
 
 
+function formatDate(dateStr) {
+  const d = new Date(dateStr);
+  if (isNaN(d)) return dateStr;
+  const y = d.getFullYear();
+  const m = String(d.getMonth()+1).padStart(2, '0');
+  const d_ = String(d.getDate()).padStart(2, '0');
+  return `${y}/${m}/${d_}`;
+}
 
 let allPosts = [];
 
@@ -52,7 +60,8 @@ for (const path in markdownFiles) {
 
     allPosts.push({
       id: id,
-      frontmatter: data,
+      frontmatter: {...data, date: formatDate(data.date)},
+      excerpt: content.slice(0, 50)+ '...',
       content: md.render(content)
     });
 
