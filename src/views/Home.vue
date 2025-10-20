@@ -89,7 +89,7 @@ onMounted(() => {
   width: 100%;
   height: 100vh;
   background-image: url('/2k-SU.jpg');
-  background-size: 100% 100%;
+  background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   display: flex;
