@@ -1,6 +1,7 @@
 import { Buffer } from 'buffer';
 window.Buffer = Buffer; // 重新手动挂载到全局 window 对象
 
+
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'

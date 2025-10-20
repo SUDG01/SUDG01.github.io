@@ -113,9 +113,14 @@ onUnmounted(() => {
 }
 
 .main {
+  overflow-x: hidden;
   flex: 1;
-  padding: 20px;
+  padding: 0;
+  margin: 0;
   animation: fadeIn 0.8s ease;
+  width: 100%;
+  top: 0;
+  left: 0;
 }
 
 .footer {
