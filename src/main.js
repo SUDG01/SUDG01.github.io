@@ -36,8 +36,8 @@ const app = createApp(App)
 app.use(router)
 app.use(ElementPlus)
 app.use(VueLazyload, {
-  loading: '/public/loding_juju.gif',
-  error: '/public/error_su.png'
+  loading: '/loding_juju.gif',
+  error: '/error_su.png'
 })
 
 app.mount('#app')

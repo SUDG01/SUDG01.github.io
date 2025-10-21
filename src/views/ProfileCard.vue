@@ -1,7 +1,7 @@
 <template>
   <div class="profile-wrapper">
     <div class="profile-card">
-      <img class="avatar" :src="avatar" alt="头像" />
+      <img class="avatar" :v-lazy="avatar" alt="头像" />
       <div class="info">
         <h2>{{ name }}</h2>
         <p>{{ description }}</p>
@@ -26,7 +26,7 @@
     <div class="top-posts">
       <a v-for="post in topPosts" :key="post.id" :href="'#/post/' + post.id">
         <div class="top-post-card">
-          <img :src="post.frontmatter.cover" alt="" />
+          <img :v-lazy="post.frontmatter.cover" alt="" />
           <!-- 文章信息 -->
            <div class="post-content">
             <div>
