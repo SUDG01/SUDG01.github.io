@@ -1,8 +1,7 @@
 ---
 title: MeowClient Release
 date: 2025-08-17 19:42:02
-categories: G3t5tart
-top_img: https://github.com/SUDG01/tuchuang/blob/main/MeowClient/106711228_p0_master1200.jpg?raw=true
+cover: /meowClient.jpg
 ---
 
 # MeowClient Release

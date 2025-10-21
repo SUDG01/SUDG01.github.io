@@ -1,6 +1,7 @@
 ---
 title: 个人AI模型分享
 date: 2025-02-19 21:32:39
+cover: /kitasan-1.png
 ---
 
 # AI模型分享页

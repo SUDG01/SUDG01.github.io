@@ -1,9 +1,7 @@
 ---
 title: 欢迎来到SU小喵の小站
 date: 2024-09-29 11:01:41
-tags: firstblog
-categories: G3t5tart
-top_img: https://github.com/SUDG01/tuchuang/blob/main/b.jpg?raw=true
+cover: https://github.com/SUDG01/tuchuang/blob/main/b.jpg?raw=true
 ---
 
 Hallo，大家好！！

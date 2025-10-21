@@ -60,7 +60,11 @@ for (const path in markdownFiles) {
 
     allPosts.push({
       id: id,
-      frontmatter: {...data, date: formatDate(data.date)},
+      frontmatter: {
+        ...data,
+        date: formatDate(data.date),
+        cover: data.cover || '',
+      },
       excerpt: content.slice(0, 50)+ '...',
       content: md.render(content)
     });

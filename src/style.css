@@ -42,8 +42,6 @@ h1 {
 }
 
 html {
-  margin: 0;
-  padding: 0;
   overflow-x: hidden;
 }
 
@@ -74,8 +72,6 @@ button:focus-visible {
 #app {
   width: 100%;
   overflow-x: hidden;
-  margin: 0 auto;
-  padding: 0;
   text-align: center;
   background-color: #fffafc;
 }
@@ -93,10 +89,6 @@ button:focus-visible {
   display: none; /* 不显示小圆圈 */
 }
 
-section,div {
-  margin: 0 auto;
-  padding: 0;
-}
 
 @media (prefers-color-scheme: light) {
   :root {

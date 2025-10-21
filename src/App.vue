@@ -4,12 +4,13 @@
       <div class="logo">SU的小窝～</div>
       <el-menu mode="horizontal" router class="menu" background-color="transparent">
         <el-menu-item index="/">首页</el-menu-item>
-        <el-menu-item index="/About">关于我</el-menu-item>
+        <el-menu-item index="/posts">文章</el-menu-item>
+        <el-menu-item index="/about">关于我</el-menu-item>
       </el-menu>
     </el-header>
 
     <el-main class="main">
-      <router-view></router-view>
+      <router-view />
     </el-main>
 
     <el-footer class="footer">
@@ -115,12 +116,12 @@ onUnmounted(() => {
 .main {
   overflow-x: hidden;
   flex: 1;
-  padding: 0;
-  margin: 0;
   animation: fadeIn 0.8s ease;
   width: 100%;
   top: 0;
   left: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .footer {

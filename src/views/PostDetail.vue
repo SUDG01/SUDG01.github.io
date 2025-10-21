@@ -74,6 +74,8 @@ const goback = () => {
   margin-left: 0;
 }
 .post-detail {
+  padding-top: 120px;
+  margin-top: 80px;
   max-width: 1280px;
   margin: 20px auto;
   background: rgba(255, 255, 255, 0.85); /* 浅色背景 */
@@ -82,7 +84,8 @@ const goback = () => {
   box-shadow: 0 10px 25px rgba(255, 182, 193, 0.2); /* 二次元柔和阴影 */
 }
 .page-header {
-  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 25px;
 }
 .post-meta {
   color: #909399;

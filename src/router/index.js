@@ -1,15 +1,13 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 //路由文件
-import Home from "../views/Home.vue";
-import About from "../views/About.vue";
-import PostDetail from "../views/PostDetail.vue";
+
 
 //定义一个路由
 const routes = [
-    {path: '/', name: 'Home', component: Home},
-    {path: '/about', name: 'About', component: About},
-
-    {path: '/post/:id', name: 'PostDetail', component: PostDetail},
+    {path: '/', name: 'Home', component: () => import('../views/Home.vue')},
+    {path: '/about', name: 'About', component: () => import('../views/About.vue')},
+    {path: '/posts', name: 'Posts', component: () => import('../views/PostsView.vue')},
+    {path: '/post/:id', name: 'PostDetail', component: () => import('../views/PostDetail.vue')},
 ]
 
 //创建路由

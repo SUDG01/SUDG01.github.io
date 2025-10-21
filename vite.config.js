@@ -2,7 +2,8 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import path from 'path'
 import { nodePolyfills } from 'vite-plugin-node-polyfills' 
-import viteImagemin from 'vite-plugin-imagemin' // ✅ 引入插件
+import viteImagemin from 'vite-plugin-imagemin'
+import { VitePWA } from 'vite-plugin-pwa'
 
 const root = path.resolve(process.cwd());
 
@@ -12,6 +13,25 @@ export default defineConfig(() => {
     plugins: [
       vue(),
       nodePolyfills(),
+
+      VitePWA({
+        registerType: 'autoUpdate',
+        manifest: {
+          name: 'SU的小站',
+          short_name: 'SU Blog',
+          theme_color: '#ff82a9',
+          background_color: '#ffffff',
+          display: 'standalone',
+          icons: [
+            {
+              src: '/public/favicon.png',
+              sizes: '512x512',
+              type: 'image/png',
+            },
+          ],
+        },
+      }),
+
       viteImagemin({
         // PNG 压缩
         pngquant: {

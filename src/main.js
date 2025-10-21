@@ -10,6 +10,8 @@ import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import './api/progress.css'
 
+import VueLazyload from 'vue3-lazyload'
+
 NProgress.configure({
   showSpinner: false,
   speed: 700,
@@ -33,5 +35,9 @@ const app = createApp(App)
 
 app.use(router)
 app.use(ElementPlus)
+app.use(VueLazyload, {
+  loading: '/public/loding_juju.gif',
+  error: '/public/error_su.png'
+})
 
 app.mount('#app')

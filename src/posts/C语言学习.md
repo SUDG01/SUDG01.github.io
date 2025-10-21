@@ -3,7 +3,7 @@ title: C语言学习
 date: 2024-10-07 22:06:10
 tags: weekly
 categories: 周报
-top_img: 
+cover: 
 ---
 
 # 学习C语言
