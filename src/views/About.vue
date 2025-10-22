@@ -42,7 +42,7 @@
 /* 标题 */
 h1 {
   font-size: 2.6rem;
-  color: #ff82a9;
+  color: #ea8102;
   text-shadow: 0 0 6px rgba(255, 192, 203, 0.3);
   margin-bottom: 1.5rem;
 }

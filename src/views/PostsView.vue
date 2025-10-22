@@ -18,7 +18,7 @@
 
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref } from 'vue';
 import { getAllPosts } from '../api/posts';
 
 
@@ -50,7 +50,7 @@ const posts = ref(postsData);
 
 .post-list h2 {
   font-size: 2.5rem;
-  color: #ba6f86;
+  color: #ea8102;
   margin-bottom: 30px;
   text-shadow: 0 3px 6px rgba(255, 182, 193, 0.4);
   animation: fadeIn 1s ease;
@@ -74,7 +74,7 @@ const posts = ref(postsData);
 
 .card-header a{
   text-decoration: none;
-  color: #ff82a9;
+  color: #ea8102;
   font-weight: bold;
   font-size: 20px;
   transition: 0.4s;
@@ -93,5 +93,10 @@ const posts = ref(postsData);
 .date {
   color: #888;
   font-size: 14px;
+}
+
+h1 {
+  color: #000000;
+  text-shadow: #555;
 }
 </style>

@@ -1,10 +1,11 @@
 <template>
   <el-container class="app-container">
     <el-header :class="['header',{ 'scrolled': isScrolled }]">
-      <div class="logo">SU的小窝～</div>
+      <router-link to="/" class="logo">SU的小窝～</router-link>
       <el-menu mode="horizontal" router class="menu" background-color="transparent">
         <el-menu-item index="/">首页</el-menu-item>
         <el-menu-item index="/posts">文章</el-menu-item>
+        <el-menu-item index="/timeline">归档</el-menu-item>
         <el-menu-item index="/about">关于我</el-menu-item>
       </el-menu>
     </el-header>
@@ -14,7 +15,7 @@
     </el-main>
 
     <el-footer class="footer">
-      © 2025 SUX1NG的小窝 🐾 | Powered by Vue3 + Element Plus
+      Copyright© 2025 苏星 | Powered by Vue3
     </el-footer>
   </el-container>
 </template>
@@ -70,9 +71,10 @@ onUnmounted(() => {
 }
 
 .logo {
+  text-decoration: none;
   font-size: 24px;
   font-weight: bold;
-  color: #ff82a9;
+  color: #ea8102;
   text-shadow: 0 0 6px rgba(255, 192, 203, 0.7);
   transition: transform 0.3s;
 }

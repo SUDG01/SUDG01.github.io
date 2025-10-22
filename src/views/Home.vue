@@ -82,8 +82,9 @@ onMounted(() => {
   position: relative;
   top: 0;
   left: 0;
-  height: 100vh;
   background-image: url('/2k-SU.jpg');
+  max-width: 100%;
+  height: 100vh;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -162,6 +163,52 @@ onMounted(() => {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    background-position: center center;
+    max-width: 100%;
+    background-size: contain;
+  }
+
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .information {
+    padding: 10px 4%;
+    margin-top: 10px;
+  }
+
+  /* 让 ProfileCard 垂直排列 */
+  .profile-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-card {
+    width: 100%;
+  }
+
+  .top-post-card {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .top-post-card img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .top-post-card > div {
+    width: 100%;
+    padding: 10px;
   }
 }
 </style>

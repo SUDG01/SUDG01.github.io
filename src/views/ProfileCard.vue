@@ -1,7 +1,7 @@
 <template>
   <div class="profile-wrapper">
     <div class="profile-card">
-      <img class="avatar" :v-lazy="avatar" alt="头像" />
+      <img class="avatar" v-lazy="avatar" alt="头像" />
       <div class="info">
         <h2>{{ name }}</h2>
         <p>{{ description }}</p>
@@ -26,7 +26,7 @@
     <div class="top-posts">
       <a v-for="post in topPosts" :key="post.id" :href="'#/post/' + post.id">
         <div class="top-post-card">
-          <img :v-lazy="post.frontmatter.cover" alt="" />
+          <img v-lazy="post.frontmatter.cover" alt="" />
           <!-- 文章信息 -->
            <div class="post-content">
             <div>
@@ -47,7 +47,7 @@ import { ref, computed } from 'vue';
 import { getAllPosts } from '../api/posts';
 
 const allPosts = ref(getAllPosts());
-const topPosts = computed(() => allPosts.value.slice(0, 2));
+const topPosts = computed(() => allPosts.value.slice(0, 4));
 
 
 import { h } from 'vue';
@@ -80,7 +80,7 @@ const links = [
 .top-up {
   position: relative;
   z-index: 2;
-  color: #ff82a9;
+  color: #ea8102;
   text-shadow: 2px 2px 6px rgba(253, 154, 154, 0.4);
   animation: fadeIn 1.0s ease;
   text-align: left;
@@ -99,7 +99,7 @@ const links = [
 }
 
 .top-post-card:hover {
-  border-color: #ffb6c1;
+  border-color: #ea8102;
   transform: translateY(-3px);
   box-shadow: 0 4px 15px rgba(255,182,193,0.2);
 }
@@ -107,7 +107,7 @@ const links = [
 .top-post-card img {
   width: 20%;
   height: auto; /* 高度随内容 */
-  object-fit: contain;
+  object-fit: fill;
 }
 
 .top-post-card > div {
@@ -122,7 +122,7 @@ const links = [
 .top-post-card > div > div:first-child {
   font-size: 18px;
   font-weight: bold;
-  color: #ff82a9;
+  color: #000000;
 }
 
 .top-post-card > div > div:last-child {
@@ -137,9 +137,9 @@ const links = [
 }
 
 .top-posts {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
   flex: 1;
 }
 
@@ -227,5 +227,9 @@ const links = [
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+a {
+  text-decoration: none;
 }
 </style>

@@ -8,6 +8,7 @@ const routes = [
     {path: '/about', name: 'About', component: () => import('../views/About.vue')},
     {path: '/posts', name: 'Posts', component: () => import('../views/PostsView.vue')},
     {path: '/post/:id', name: 'PostDetail', component: () => import('../views/PostDetail.vue')},
+    {path: '/timeline', name: 'Timeline', component: () => import('../views/TimeLine.vue')},
 ]
 
 //创建路由

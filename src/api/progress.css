@@ -1,7 +1,7 @@
 /* main.css 或全局样式文件 */
 #nprogress .bar {
   height: 5px !important;
-  background: linear-gradient(90deg, #ff9acd, #ff82a9) !important;
+  background: linear-gradient(90deg, #ff82a9, #ffbf72) !important;
 }
 
 #nprogress .peg {
