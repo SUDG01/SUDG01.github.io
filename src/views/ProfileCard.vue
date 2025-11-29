@@ -24,16 +24,18 @@
 
     <!-- 以下是置顶文章 -->
     <div class="top-posts">
+      <div v-if="loading" style="padding: 20px; color: #888;">正在加载文章...</div>
+
       <a v-for="post in topPosts" :key="post.id" :href="'#/post/' + post.id">
         <div class="top-post-card">
-          <img v-lazy="post.frontmatter.cover" alt="" />
+          <img v-lazy="post.cover" alt="" />
           <!-- 文章信息 -->
            <div class="post-content">
             <div>
-              {{ post.frontmatter.title }}
+              {{ post.title }}
             </div>
             <div>
-              <span>{{ post.frontmatter.date }}</span>
+              <span>{{ post.date }}</span>
             </div>
            </div>
         </div>
@@ -43,14 +45,19 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+import { ref, computed, onMounted, h } from 'vue';
 import { getAllPosts } from '../api/posts';
 
-const allPosts = ref(getAllPosts());
+const allPosts = ref([])
+const loading = ref(true);
+
 const topPosts = computed(() => allPosts.value.slice(0, 4));
 
-
-import { h } from 'vue';
+onMounted(async () => {
+  const data = await getAllPosts();
+  allPosts.value = data;
+  loading.value = false;
+})
 
 
 const avatar = '/avatar.png';
@@ -89,25 +96,37 @@ const links = [
 .top-post-card {
   display: flex;
   flex-direction: row;
-  background: #fff;
-  border-radius: 12px;
-  border: 1px solid rgba(230,230,230,0.6);
+  background: rgba(255, 255, 255, 0.9); /* 稍微透明一点 */
+  backdrop-filter: blur(5px); /* 磨砂效果 */
+  border-radius: 16px; /* 更圆润的角 */
+  border: 1px solid rgba(255, 255, 255, 0.5);
   overflow: hidden;
   flex: 1;
-  transition: all 0.3s ease;
   min-height: 120px;
+  height: 100%;
+  
+  /* 关键：过渡动画 */
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
 }
 
 .top-post-card:hover {
-  border-color: #ea8102;
-  transform: translateY(-3px);
-  box-shadow: 0 4px 15px rgba(255,182,193,0.2);
+  /* 上浮 */
+  transform: translateY(-8px); 
+  /* 发光阴影 */
+  box-shadow: 0 12px 24px rgba(255, 130, 169, 0.25); 
+  border-color: #ffb6c1;
 }
 
 .top-post-card img {
-  width: 20%;
-  height: auto; /* 高度随内容 */
-  object-fit: fill;
+  width: 30%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.top-post-card:hover img {
+  transform: scale(1.05); /* 图片微微放大 */
 }
 
 .top-post-card > div {

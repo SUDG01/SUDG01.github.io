@@ -20,7 +20,6 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import { getAllPosts } from '../api/posts';
 import ProfileCard from './ProfileCard.vue';
 
 
@@ -168,7 +167,7 @@ onMounted(() => {
 
 @media (max-width: 768px) {
   .hero {
-    background-position: center center;
+    background-position: start center;
     max-width: 100%;
     background-size: contain;
   }
@@ -210,5 +209,11 @@ onMounted(() => {
     width: 100%;
     padding: 10px;
   }
+}
+
+:deep(.el-skeleton__item) {
+  background: linear-gradient(90deg, #f0f2f5 25%, #ffe6f0 37%, #f0f2f5 63%);
+  background-size: 400% 100%;
+  animation: el-skeleton-loading 1.4s ease infinite;
 }
 </style>
